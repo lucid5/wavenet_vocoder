@@ -320,7 +320,7 @@ class WaveNet(nn.Module):
 
         current_input = initial_input
 
-        for t in tqdm(range(T)):
+        for t in tqdm(range(T), position=0, leave=True):
             if test_inputs is not None and t < test_inputs.size(1):
                 current_input = test_inputs[:, t, :].unsqueeze(1)
             else:
